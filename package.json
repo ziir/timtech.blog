@@ -1,0 +1,35 @@
+{
+  "name": "timtech.blog",
+  "version": "0.1.0",
+  "description": "Tim's Tech Blog.",
+  "scripts": {
+    "build": "eleventy",
+    "watch": "eleventy --watch",
+    "serve": "eleventy --serve",
+    "start": "eleventy --serve",
+    "debug": "DEBUG=* eleventy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ziir/timtech.blog.git"
+  },
+  "author": {
+    "name": "Timothée 'Tim' Pillard",
+    "email": "tim@timtech.blog",
+    "url": "https://twitter.com/tpillard"
+  },
+  "bugs": {
+    "url": "https://github.com/ziir/timtech.blog/issues"
+  },
+  "license": "AGPL-3.0-only",
+  "homepage": "https://timtech.blog",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.11.0",
+    "@11ty/eleventy-navigation": "^0.1.6",
+    "@11ty/eleventy-plugin-rss": "^1.0.9",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.1",
+    "luxon": "^1.21.3",
+    "markdown-it": "^8.4.2",
+    "markdown-it-anchor": "^5.2.5"
+  }
+}

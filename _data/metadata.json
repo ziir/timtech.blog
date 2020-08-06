@@ -1,0 +1,20 @@
+{
+  "title": "Tim's Tech Blog",
+  "url": "https://timtech.blog/",
+  "description": "I write stuff about Web Development, Web Performance, JavaScript, nonsense.",
+  "feed": {
+    "subtitle": "I write stuff about Web Development, Web Performance, JavaScript, nonsense.",
+    "filename": "feed.xml",
+    "path": "/feed/feed.xml",
+    "id": "https://timtech.blog/"
+  },
+  "jsonfeed": {
+    "path": "/feed/feed.json",
+    "url": "https://timtech.blog/feed/feed.json"
+  },
+  "author": {
+    "name": "Tim",
+    "email": "tim@timtech.blog",
+    "url": "https://timtech.blog/about-me/"
+  }
+}

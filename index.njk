@@ -1,0 +1,26 @@
+---
+layout: layouts/home.njk
+eleventyNavigation:
+  key: Home
+  order: 1
+---
+
+<h1>Hey, I'm <a href="{{ '/about/' | url }}">Tim</a> and this is my Tech Blog.</h1>
+
+<h2>Latest 5 Posts</h2>
+
+{% set postslist = collections.posts | head(-5) %}
+{% set postslistCounter = collections.posts | length %}
+{% include "postslist.njk" %}
+
+<p class="more">
+  <a href="{{ '/posts/' | url }}">See all posts.</a>
+  <br>
+  Every post is tagged according to the topic it relates to:
+</p>
+<ul class="post-tags-list">
+{% for tag in collections.tagList %}
+  {% set tagUrl %}/tags/{{ tag }}/{% endset %}
+  <li class="post-tag"><a href="{{ tagUrl | url }}">{{ tag }}</a></li>
+{% endfor %}
+</ul>
