@@ -36,10 +36,18 @@ p:last-child {
   margin-bottom: 0;
 }
 .tmpl-post p,
-.tmpl-post li,
-img {
+.tmpl-post ul {
   max-width: 37.5em; /* 600px /16 */
 }
+.tmpl-post img {
+  max-width: 100%;
+}
+
+/* 1. prism's CSS only handles pre[class*="language-"] overflow */
+.tmpl-post pre { /* 1. */
+  overflow: auto;
+}
+
 p,
 .tmpl-post li {
   line-height: 1.45;
