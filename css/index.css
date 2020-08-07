@@ -48,6 +48,12 @@ p:last-child {
   overflow: auto;
 }
 
+/* 2. prism's CSS only sets vertical padding for pre[class*="language-"] */
+.tmpl-post pre[class*="language-"] { /* 2. */
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
 p,
 .tmpl-post li {
   line-height: 1.45;
