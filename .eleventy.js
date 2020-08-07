@@ -100,7 +100,14 @@ module.exports = function(eleventyConfig) {
       "md",
       "njk",
       "html",
-      "liquid"
+      "liquid",
+      // Instruct eleventy to copy the ~favicon-related files.
+      // Better to serve these from the root path.
+      "ico",
+      "svg",
+      "png",
+      "xml",
+      "webmanifest"
     ],
 
     // If your site lives in a different subdirectory, change this.
