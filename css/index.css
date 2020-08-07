@@ -197,6 +197,7 @@ pre {
 }
 .postlist-item-metadata {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .postlist-item:before {
