@@ -1,6 +1,6 @@
 ---
 title: Limiting Asynchronous Operations Concurrency In JavaScript.
-description: "Say one has a list of things, and for every of these things, one needs to perform an asynchrounous operation that returns a Promise.
+description: "Say one has a list of things, and for every of these things, one needs to perform an asynchronous operation that returns a Promise.
 How does one limit the number of asynchronous operations being performed concurrently?
 Without 3rd party dependencies and just a few lines of code?"
 date: 2020-08-07
