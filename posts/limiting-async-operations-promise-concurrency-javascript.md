@@ -100,6 +100,8 @@ All operations performed in 338ms, moving on to something else now.
 
 As we can see, ~all the asynchronous operations were performed **concurrently**, and sometimes, that's perfectly fine and exactly what we want.
 
+_Note: `Promise.all` only waits for all the `Promise`s to be resolved. The actual asynchronous operation is triggered by the function call from `Array.prototype.map`, creating a new `Promise` on each call._
+
 ### The problem of performing operations concurrently
 
 Now, let's assume that our `performAsyncOperation` really performs an HTTP request, an API Call, a database query, or really anything else that would either suffer or punish us for the load we push on to it. It might be a rate-limited API, or a fragile host.
@@ -107,6 +109,8 @@ Now, let's assume that our `performAsyncOperation` really performs an HTTP reque
 _Note: in the actual case of an HTTP request, or database query, the Web/Node.js/etc... API being used will already probably limit concurrency, of which value may or may not configurable, but let's assume that we cannot or do not want to change such settings._
 
 In such cases, we simply cannot allow our script to perform all these operations concurrently, as it risks getting our API key revoked, our IP blocked, or the target host/database responding unreliably, etc... Thus we will be searching for a way to limit this concurrency to avoid such scenario.
+
+_Note: depending on the actual work performed by the asynchronous operation, performing many of these concurrently may also make the process running it consuming significant amount of CPU and/or memory resources on the machine it runs._
 
 ### A solution: performing asynchronous operations sequentially
 
@@ -228,11 +232,51 @@ Performed operation for resource 99.
 All operations performed in 9948ms, moving on to something else now.
 ```
 
+### Bonus solution: batching concurrent operations
+
+There's one more way to look at the problem, and reach another solution: splitting the asynchronous operations to be performed in **batches**.
+In our case, if we have 99 operations to perform, we can split these into 33 batches of 3 operations.
+With batching, every operation within one batch will be performed conccurently, and the next batch will only be started once the previous one is finished.
+How does one implement concurrent operations batching with JavaScript?
+
+``` javascript/5-10/4
+async function run() {
+  const start = Date.now();
+  const ids = Array.from(Array(99), (_, i) => i + 1);
+
+  - await Promise.all(ids.map(performAsyncOperation));
+  + let i = 1;
+  + while (ids.length) {
+  +   await Promise.all(ids.splice(0, 3).map(performAsyncOperation);
+  +   console.log('Performed async operactions batch number', i);
+  +   i++;
+  + }
+  const end = Date.now();
+  console.log(`All operations performed in ${end - start}ms, moving on to something else now.`);
+}
+```
+
+Which gives us the following output:
+
+```
+[tim@praxis ~]$ node limit-async.js 
+Performed operation for resource 1.
+Performed operation for resource 2.
+Performed operation for resource 3.
+Performed async operactions batch number 1
+...
+Performed operation for resource 97.
+Performed operation for resource 98.
+Performed operation for resource 99.
+Performed async operactions batch number 33
+All operations performed in 9981ms, moving on to something else now.
+```
+
 ### Conclusion
 
 Asynchronous JavaScript can be tricky, and though one may argue the language lacks high-level APIs to deal more efficiently with some of these tricky cases like the one we've just covered, it's always worth taking our chance at solving the problems leveraging the features that we're provided by the language.
 
-In this post we've built and lived through a common scenario of managing asynchronous operations in JavaScript, along with a common pitfall associated with a naive approach, as well as an intermediary solution that is also very useful on some other cases, and finally the optimal solution for dealing with this problem, all without using third party modules. I hope this may be useful to some of you, and that I did not take too many shortcuts in the process.
+In this post we've built and lived through a common scenario of managing asynchronous operations concurrency in JavaScript, along with a common pitfall associated with a naive approach, as well as an intermediary solution that is also very useful on some other cases, and finally the optimal solution for dealing with this problem, all without using third party modules. I hope this may be useful to some of you, and that I did not take too many shortcuts in the process.
 
 If you liked this post, feel free to encourage me by saying so on [my Twitter](https://twitter.com/tpillard) and/or by liking/retweeting the associated tweet or sharing the article around you.
 If, on the contrary, you did not like this post and think I should never write JavaScript and/or on a public medium again, keep it to yourself dude, I know already.
