@@ -108,7 +108,9 @@ module.exports = function(eleventyConfig) {
       "svg",
       "png",
       "xml",
-      "webmanifest"
+      "webmanifest",
+      // + robots.txt
+      "txt"
     ],
 
     // If your site lives in a different subdirectory, change this.
