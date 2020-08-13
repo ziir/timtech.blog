@@ -12,7 +12,7 @@ pagination:
   addAllPagesToCollections: true
 layout: layouts/home.njk
 eleventyComputed:
-  title: Tagged “{{ tag }}”
+  title: Tagged “{{ tag | safe }}”
 permalink: /tags/{{ tag }}/
 ---
 <h1>Tagged “{{ tag }}”</h1>
