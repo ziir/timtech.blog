@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% set documentTitle %}{{ title or "" }}{% if title %} - {% endif %}{{ metadata.title | safe }}{% endset %}
+    {% set documentTitle %}{{ title | safe or "" }}{% if title %} - {% endif %}{{ metadata.title | safe }}{% endset %}
     <title>{{ documentTitle }}</title>
     <meta name="description" content="{{ description or metadata.description }}">
     <link rel="preload" href="{{ '/fonts/firasans-regular.woff2' | url }}" as="font">
@@ -24,22 +24,23 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="{{ page.url | url | absoluteUrl(metadata.url) }}" />
     <meta property="og:image" content="{{ '/img/mozilla-dino-poster-square-greyscale.png' | url | absoluteUrl(metadata.url) }}" />
-    <meta property="og:site_name" content="Tim's Tech Blog" />
+    <meta property="og:site_name" content="{{ metadata.title }}" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:creator" content="@tpillard" />
+    <meta name="twitter:creator" content="{{ metadata.author.twitter }}" />
   </head>
   <body>
     <header>
-      <div>
-        <h1 class="home"><a href="{{ '/' | url }}">{{ metadata.title }}</a></h1>
-
+      <h1><a href="{{ '/' | url }}">{{ metadata.title }}</a></h1>
+      <nav role="navigation" aria-label="Main">
         {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
         <ul class="nav">
-        {%- for entry in collections.all | eleventyNavigation %}
-          <li class="nav-item{% if entry.url == page.url %} nav-item-active{% endif %}"><a href="{{ entry.url | url }}">{{ entry.title }}</a></li>
-        {%- endfor %}
+          {%- for entry in collections.all | eleventyNavigation %}
+            <li class="nav-item{% if entry.url == page.url %} nav-item-active{% endif %}">
+              <a href="{{ entry.url | url }}">{{ entry.title }}</a>
+            </li>
+          {%- endfor %}
         </ul>
-      </div>
+      </nav>
     </header>
 
     <main{% if templateClass %} class="{{ templateClass }}"{% endif %}>
