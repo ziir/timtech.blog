@@ -4,5 +4,11 @@ eleventyExcludeFromCollections: true
 ---
 ErrorDocument 404 /404.html
 <IfModule mod_headers.c>
+Header always set X-FRAME-OPTIONS "DENY"
+Header always set X-Content-Type-Options "nosniff"
 Header always set Strict-Transport-Security "max-age=15552000"
+Header set Content-Security-Policy "default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'none'; base-uri 'self';"
 </IfModule>
+AddDefaultCharset utf-8
+AddType font/woff2 woff2
+AddType application/manifest+json webmanifest
