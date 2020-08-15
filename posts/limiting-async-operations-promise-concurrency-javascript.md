@@ -122,7 +122,7 @@ async function run() {
   const ids = Array.from(Array(99), (_, i) => i + 1);
 
   - await Promise.all(ids.map(performAsyncOperation));
-  + for (id of ids) {
+  + for (const id of ids) {
   +   await performAsyncOperation(id);
   + }
   const end = Date.now();
