@@ -22,7 +22,7 @@ Passionate about the Web, I am proficient with JavaScript, Web technologies, the
 - [Send me a DM on Twitter](https://twitter.com/tpillard)
 - [Send me an email](mailto:tim+about@timtech.blog)
 
-## Some Projects
+## Current Projects
 
 ### [soundcut/app](https://github.com/soundcut/app)
 
@@ -32,3 +32,10 @@ Built using JavaScript (ES2017) with [hyper/viperHTML](https://viperhtml.js.org/
 ### [soundcut/decode-audio-data-fast](https://github.com/soundcut/decode-audio-data-fast)
 
 **decode-audio-data-fast** is a small JavaScript utility allowing to decode mp3 audio file data in the browser from a File/Blob into a AudioBuffer using [AudioContext.decodeAudioData()](https://developer.mozilla.org/en-US/docs/Web/API/BaseAudioContext/decodeAudioData), but consistently faster than the native method.
+
+## Past Projects
+
+### [parisweb.app (2018)](https://parisweb.app)
+
+Demo apps for the React/Redux performance workshop [“Petits trucs pour rendre vos applications React plus performantes”](https://www.paris-web.fr/2018/ateliers/petits-trucs-pour-rendre-vos-applications-react-plus-performantes.php) performed with [Julien Wajsberg](https://twitter.com/jwajsberg) at a meetup hosted by [Gandi](https://www.gandi.net) and then at [Paris Web](https://www.paris-web.fr) in 2018.
+The materials produced at this occasion (slides, code, examples) are still somewhat relevant resources to understand and improve performance of React apps, with or without Redux, in 2020.
