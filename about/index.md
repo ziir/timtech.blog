@@ -7,7 +7,7 @@ eleventyNavigation:
   order: 3
 ---
 
-Hey, my name is Timothée “Tim” Pillard ([@tpillard on Twitter](https://twitter.com/tpillard), [@ziir on GitHub](https://github.com/ziir)) and this is my Tech Blog.
+Hey, my name is Timothée “Tim” Pillard (<a rel="me" href="https://hachyderm.io/@tpillard">hachyderm.io/@tpillard</a>, <a rel="me" href="https://twitter.com/tpillard">twitter.com/tpillard</a>, <a rel="me" href="https://github.com/ziir">github.com/ziir</a>) and this is my Tech Blog.
 Formerly Senior Front-End Engineer / Tech Lead at [Dashlane](https://www.dashlane.com/) / [GANDI](https://www.gandi.net/), I write stuff about Web Development, Web Performance, JavaScript, nonsense.
 
 ## I'm Looking For A Job
@@ -19,6 +19,7 @@ Passionate about the Web, I am proficient with JavaScript, Web technologies, the
 
 ### Get In Touch
 
+- [Send me a DM on Mastodon](https://hachyderm.io/@tpillard)
 - [Send me a DM on Twitter](https://twitter.com/tpillard)
 - [Send me an email](mailto:tim+about@timtech.blog)
 
@@ -34,7 +35,7 @@ In 2021/2022, I have analyzed the JavaScript bundles & Babel configuration of tw
 ### [parisweb.app (2018)](https://parisweb.app)
 
 Demo apps for the React/Redux performance workshop [“Petits trucs pour rendre vos applications React plus performantes”](https://www.paris-web.fr/2018/ateliers/petits-trucs-pour-rendre-vos-applications-react-plus-performantes.php) performed with [Julien Wajsberg](https://twitter.com/jwajsberg) at a meetup hosted by [Gandi](https://www.gandi.net) and then at [Paris Web](https://www.paris-web.fr) in 2018.
-The materials produced at this occasion (slides, code, examples) are still somewhat relevant resources to understand and improve performance of React apps, with or without Redux, in 2020.
+The materials produced at this occasion (slides, code, examples) are mostly outdated, yet still somewhat relevant resources to understand and improve performance of React apps, with or without Redux, in 2023.
 
 ### [soundcut/app](https://github.com/soundcut/app)
 
