@@ -24,7 +24,8 @@
     <meta property="og:description" content="{{ description or metadata.description }}">
     <meta property="og:type" content="website" />
     <meta property="og:url" content="{{ page.url | url | absoluteUrl(metadata.url) }}" />
-    <meta property="og:image" content="{{ '/img/mozilla-dino-poster-square-greyscale.png' | url | absoluteUrl(metadata.url) }}" />
+    {% set openGraphImage %}{{ image or '/img/mozilla-dino-poster-square-greyscale.png' }}{% endset %}
+    <meta property="og:image" content="{{ openGraphImage | url | absoluteUrl(metadata.url) }}" />
     <meta property="og:site_name" content="{{ metadata.title }}" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:creator" content="{{ metadata.author.twitter }}" />
