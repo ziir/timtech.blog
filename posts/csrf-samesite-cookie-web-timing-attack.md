@@ -11,6 +11,13 @@ tags:
 layout: layouts/post.njk
 ---
 
+_Update 2022-12-21: I acknowledge this blog post isn’t as fun or interesting as I wanted it to be, it also contains a couple of minor errors.
+I still believe it covers an interesting topic, I’ll find a way to do it better.
+Thanks again to anyone who has read it and offered me their feedback._
+
+_Update 2022-12-22: Previously stated that cookies were set with SameSite=Lax by default in modern browsers, which is incorrect.
+Updated with accurate browser compatibility info, links to the updated standard, MDN compatibility table, Firefox bug tracker._
+
 ### CSRF
 
 <img src="/img/seasurf-kaitlyn-jackson-LVbfbs0BPNY-unsplash.jpg" alt="Black & white photo of a surfer falling off their board" width="480" />
@@ -22,16 +29,34 @@ As such, CSRF is usually well known among web developers, and most of today's we
 
 By the way, feel free to take a look at my [Cross-Origin Resource Sharing For The Web (Extension)](https://timtech.blog/posts/presentation-dashlane-web-extension-security-cross-origin-resource-sharing-CORS-OPTIONS-preflight-same-origin/) presentation for a refresher on the topic.
 
-### SameSite Cookies?
+### SameSite Cookies ?
 
-[SameSite Cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie/SameSite) for session cookies are the [best defense-in-depth mitigation against CSRF](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html#samesite-cookie-attribute), that's what they were created for.
-In fact, in modern browsers, `SameSite=Lax` is actually the default value if the `SameSite` attribute is not used in the `Set-Cookie` HTTP response header.
-With either `Strict` or `Lax` values, cookies will _not be forwarded in cross-origin subrequests_ (and even in first-party cross-origin requests in the case of `Strict`).
+[SameSite Cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie/SameSite) allows you to declare if a cookie should be restricted to a first-party or same-site context. In other words, with either `SameSite=Lax` or `SameSite=Strict`, a cookie will _not be forwarded in cross-origin subrequests_. Declaring session cookies as same-site are the [best defense-in-depth mitigation against CSRF](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html#samesite-cookie-attribute).
+
+### SameSite=Lax by default ?
+
+The Standard ([RFC 6265bis specification](https://httpwg.org/http-extensions/draft-ietf-httpbis-rfc6265bis.html#name-the-samesite-attribute)) recently changed so that `SameSite=Lax` should be the default behavior if the `SameSite` attribute is not specified in the `Set-Cookie` HTTP response header.
+However, as of today (December 22nd 2022), this default behavior is either not yet implemented (Safari) or not yet activated by default (Firefox), for [22% of current browser coverage according to browserslist](https://browserslist.dev/?q=ZmlyZWZveCA%2BIDEsIHNhZmFyaSA%2BIDEsIGlPUyA%2BMQ%3D%3D).
+
+#### SameSite=Lax default behavior browser compatiblity:
+
+- **Chrome / Chrome Android**: 80
+- **Edge**: 86
+- **Opera**: 39
+- **Opera Android**: 60
+- **Samsung Internet**: 13
+- **WebView Android**: 80
+- **Firefox**: 69 (pref `network.cookie.sameSite.laxByDefault` - [bugzilla](https://bugzilla.mozilla.org/show_bug.cgi?id=1617609))
+- **Firefox Android**: no
+- **Safari / Safari iOS**: no
+
+[See SameSite Cookies Browser Compatibility on MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie/SameSite#browser_compatibility).
 
 ### SameSite=None
 
 However, there are **still many websites** out there which rely on `SameSite=None` as they:
 
+- don't specify the `SameSite` attribute for their cookies, their Firefox & Safari users thus getting the `SameSite=None` behavior
 - already existed _before the introduction of SameSite cookies_ (from around 2016 to 2020 depending on the browser and stage of implementation), and thus already had _prior controls in place against CSRF_
 - still need to include cookies in cross-site requests, probably for some _obscure tracking purposes_
 - [aren't necessarily sure what they're doing](https://duckduckgo.com/?q=site%3Astackoverflow.com+"SameSite%3DNone")
@@ -46,17 +71,18 @@ It is usually referred to in the context of _cryptographic algorithms_, or in th
 
 ### Timing Attacks ... on the Web ?
 
-However, per Wikipedia, “timing attacks can be applied to any algorithm that has data-dependent timing variation” and, I ask you, dear reader, what more than today's websites that, gated behind authentication & user accounts, querying a myriad of unequally optimized microservices in order to display user-specific content, are subject to ”data-dependent timing variation” ?
+However, per Wikipedia, “timing attacks can be applied to any algorithm that has data-dependent timing variation” and, what more than today's websites that, gated behind authentication & user accounts, querying a myriad of unequally optimized microservices in order to display user-specific content, are subject to ”data-dependent timing variation” ?
 It is fair to assume the server handling requests to pages for user dashboards or social media timelines for example, behave _slightly differently_ whether or not the user is _logged-in or not_.
 Indeed, in a lot of cases, those requests will take **significantly longer** to be answered compared to the login page that is served (or redirected to) in its place.
 
-_Note: this assumption may not be true for some websites, nowadays even personalized content can be heavily cached, and public content may not be faster to retrieve either. However, as mentioned earlier, things are rarely equally optimized, which means that even though the main personalized content of a given websites may be very fast to retrieve, it may not be not the case for more niche content, located at another URL._
+_Note: this assumption may not be true for some websites, nowadays even personalized content can be heavily cached, and public content may not be faster to retrieve either.
+However, as mentioned earlier, things are rarely equally optimized, which means that even though the main personalized content of a given websites may be very fast to retrieve, it may not be not the case for more niche content, located at another URL._
 
 Ok that's cool and all, but what does it have to do with CSRF & SameSite Cookies?
 
 ### CSRF Based Web Timing Attacks
 
-Even with some _safeguards_ against most common & severe forms of CSRF, we can still perform attacks that fall into the CSRF category, in fact, in an actually much simpler way than with usual forged cross-site requests.
+Given a website that use `SameSite=None` for their session cookies, and, even with some _safeguards_ against most common & severe forms of CSRF, we can still perform attacks that fall into the CSRF category, in fact, in an actually much simpler way than with usual forged cross-site requests.
 The twist resides in actually sending out **two simple GET requests, with & without credentials**:
 
 - one cross-origin request _omitting credentials (cookies)_, which will yield a _public version of the page_
@@ -101,12 +127,12 @@ We also might want our code to repeat the experiment a few times and ensure that
 
 [View Gist with complete example code of the malicious page](https://gist.github.com/ziir/98b79638b4cb889c1b718e56eab0f68a)
 
-### How could this be used?
+### How could this be used ?
 
 Such Web Timing Attacks could be used by bad actors in order to further **identify potential targets**, for example as the ~first of a multi-stage attack, starting from a spam campaign linking to a malicious webpage controlled by the attacker and containing the exploit code, allowing them to identify whether or not _victims are users of specific sites or services_, before engaging in a more targeted phishing campaign.
 Depending on the website or service being targeted and after careful analysis by the attackers, one may even be able to gather more precise information about the victim than just their authentication status: potentially their _customer profile_ (ie: a specific page of a given website may take a very long or telling time to load, when in the context of a large business).
 
-### How to prevent such web timing attacks?
+### How to prevent such web timing attacks ?
 
 1. Do not use `SameSite=None`, use either `SameSite=Strict` or `SameSite=Lax`: this way, cookies will not be forwarded in cross-origin subrequests.
 2. Use a modern, up-to-date web browser, in fact, [use Firefox](https://www.mozilla.org/en-US/firefox/browsers/).
