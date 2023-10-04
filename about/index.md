@@ -7,8 +7,8 @@ eleventyNavigation:
   order: 3
 ---
 
-Hey, my name is Timothée “Tim” Pillard (<a rel="me" href="https://hachyderm.io/@tpillard">hachyderm.io/@tpillard</a>, <a rel="me" href="https://twitter.com/tpillard">twitter.com/tpillard</a>, <a rel="me" href="https://github.com/ziir">github.com/ziir</a>) and this is my Tech Blog.
-Formerly Senior Front-End Engineer / Tech Lead at [Dashlane](https://www.dashlane.com/) / [GANDI](https://www.gandi.net/), I write stuff about Web Development, Web Performance, JavaScript, nonsense.
+Hey, my name is **Timothée “Tim” Pillard** (<a rel="me" href="https://hachyderm.io/@tpillard">hachyderm.io/@tpillard</a>, <a rel="me" href="https://twitter.com/tpillard">twitter.com/tpillard</a>, <a rel="me" href="https://github.com/ziir">github.com/ziir</a>) and this is my Tech Blog.
+Formerly Senior Front-End Engineer / Tech Lead at [Dashlane](https://www.dashlane.com/) / [GANDI](https://www.gandi.net/), I write about **Web Development**, **Web Performance**, **Web Security**, **JavaScript**, **TypeScript**, **React**.
 
 ## I'm Looking For A Job
 
@@ -28,7 +28,7 @@ Passionate about the Web, I am proficient with JavaScript, Web technologies, the
 In 2021/2022, I have analyzed the JavaScript bundles & Babel configuration of two important Mozilla projects, and contributed to bringing their JavaScript build to the then current state of the art, leading to modest bundle size & runtime performance improvements:
 
 - [firefox-devtools / profiler - Babel improvements #3195](https://github.com/firefox-devtools/profiler/pull/3195)
-- [mozilla / addons-frontend -  Babel improvements: reloaded #11593](https://github.com/mozilla/addons-frontend/pull/11593)
+- [mozilla / addons-frontend - Babel improvements: reloaded #11593](https://github.com/mozilla/addons-frontend/pull/11593)
 
 ## Past Projects
 

@@ -6,11 +6,12 @@ tags:
   - this-blog
   - tooling
   - 11ty
+standalone: true
 layout: layouts/post.njk
 ---
 ### Hey, welcome!
 
-I've been wanting to have a tech blog of my own I could write stuff on for a while now...
+I've been wanting to have a tech blog of my own I could write on for a while now...
 And so I have tried to set one up a few times over the years, always with the same goals:
 - not rely on a third party platform such as Medium and the like
 - not code it all myself, because who's got time for that
@@ -107,5 +108,3 @@ Let's take a look of the things I would want to keep in such a scenario:
 ### Wrapping things up
 
 While it's usually best to weigh the pros and cons of available options before committing to either of them, sometimes it really is fine to just try it, move forward and adapt along the way, even if the first results are far from perfection.
-
-_Note: please do not build your startup's app the same way I built this blog._

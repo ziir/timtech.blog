@@ -5,10 +5,11 @@ date: 2020-12-19
 tags:
   - dashlane
   - presentation
-  - React
+  - react
   - forms
   - performance
   - JavaScript
+standalone: true
 layout: layouts/post.njk
 ---
 

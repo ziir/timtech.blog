@@ -8,6 +8,10 @@ Header always set X-FRAME-OPTIONS "DENY"
 Header always set X-Content-Type-Options "nosniff"
 Header always set Strict-Transport-Security "max-age=15552000"
 Header set Content-Security-Policy "default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'none'; base-uri 'self';"
+
+<filesMatch ".(js|pdf|css|woff2|webmanifest|webp|png|jpg|jpeg)$">
+    Header set Cache-Control "max-age=86400, public"
+</filesMatch>
 </IfModule>
 AddDefaultCharset utf-8
 AddType font/woff2 woff2

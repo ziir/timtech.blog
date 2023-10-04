@@ -1,7 +1,7 @@
 ---
 layout: layouts/home.njk
 title: Archive
-permalink: /posts/
+permalink: /archive/
 eleventyNavigation:
   key: Archive
   order: 2
@@ -9,5 +9,17 @@ eleventyNavigation:
 
 <h1>Archive</h1>
 
-{% set postslist = collections.posts %}
-{% include "postslist.njk" %}
+<h2>Blog Posts</h2>
+<p>
+  <a href="{{ '/posts/' | url }}">See all blog posts.</a>
+</p>
+
+<h2>Pages</h2>
+<p>
+  <a href="{{ '/page-list/' | url }}">See all pages.</a>
+</p>
+
+<h2>Tags</h2>
+<p>
+  <a href="{{ '/tags/' | url }}">See all tags.</a>
+</p>

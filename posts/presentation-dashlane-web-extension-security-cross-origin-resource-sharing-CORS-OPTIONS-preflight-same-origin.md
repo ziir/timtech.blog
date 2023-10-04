@@ -9,6 +9,7 @@ tags:
   - extension
   - CORS
   - CSRF
+standalone: true
 layout: layouts/post.njk
 ---
 

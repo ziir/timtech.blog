@@ -12,12 +12,16 @@ pagination:
   addAllPagesToCollections: true
 layout: layouts/home.njk
 eleventyComputed:
-  title: Tagged “{{ tag | safe }}”
+  title: “{{ tag | safe }}” Blog Posts
 permalink: /tags/{{ tag }}/
 ---
-<h1>Tagged “{{ tag }}”</h1>
+<h1>“{{ tag }}” Blog Posts</h1>
 
-{% set postslist = collections[ tag ] %}
+{% set postslist = collections[tag] %}
 {% include "postslist.njk" %}
 
-<p>See <a href="{{ '/tags/' | url }}">all tags</a>.</p>
+<p>
+  <a href="{{ '/tags/' | url }}">See all tags.</a>
+  <br/>
+  <a href="{{ '/posts/' | url }}">See all posts.</a>
+</p>

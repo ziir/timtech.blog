@@ -1,9 +1,10 @@
 {
   "title": "Tim's Tech Blog",
+  "short_name": "Tim's Blog",
   "url": "https://timtech.blog/",
-  "description": "I write stuff about Web Development, Web Performance, JavaScript, nonsense.",
+  "description": "I write about Web Development, Web Performance, Web Security, JavaScript, TypeScript, React.",
   "feed": {
-    "subtitle": "I write stuff about Web Development, Web Performance, JavaScript, nonsense.",
+    "subtitle": "I write about Web Development, Web Performance, Web Security, JavaScript, TypeScript, React.",
     "filename": "feed.xml",
     "path": "/feed/feed.xml",
     "id": "https://timtech.blog/"
@@ -13,9 +14,9 @@
     "url": "https://timtech.blog/feed/feed.json"
   },
   "author": {
-    "name": "Tim",
+    "name": "Timothée “Tim” Pillard",
     "email": "tim@timtech.blog",
-    "url": "https://timtech.blog/about-me/",
+    "url": "https://timtech.blog/about/",
     "twitter": "@tpillard",
     "mastodon": "@tpillard@hachyderm.io",
     "github": "@ziir"

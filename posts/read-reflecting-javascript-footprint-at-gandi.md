@@ -7,15 +7,16 @@ tags:
   - gandi
   - JavaScript
   - performance
-  - tips & tricks
   - tooling
+standalone: true
 layout: layouts/post.njk
 ---
 
-July 31th 2020 was my last day as [Lead Front-End Engineer](/about#i'm-looking-for-a-job) at [Gandi](https://www.gandi.net).
+July 31th 2020 was my last day as [Lead Front-End Engineer](/about/) at [Gandi](https://www.gandi.net).
 [As announced on Twitter](https://twitter.com/tpillard/status/1289276041261920261), I have spent my last few hours there writing an article to be published on [Gandi's blog](https://news.gandi.net): [Reflecting on our JavaScript footprint](https://news.gandi.net/en/2020/07/reflecting-on-our-javascript-footprint/).
 
 After quickly describing the changes occuring on the Web, this article introduces the concept of **JavaScript footprint** by examining the architecture of two websites I have been working on at Gandi:
+
 - https://www.gandi.net
 - https://shop.gandi.net
 

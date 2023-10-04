@@ -1,13 +1,17 @@
 ---
 title: CSRF When You Least Expect It.
 description: Fun with Cross-Site Request Forgery (CSRF) in a creative Web Timing Attack scenario, highlighting the risks inherent to SameSite=None session cookies.
-image: /img/seasurf-kaitlyn-jackson-LVbfbs0BPNY-unsplash.jpg
+image:
+  path: /img/seasurf-kaitlyn-jackson-LVbfbs0BPNY-unsplash.jpg
+  alt: "Black & white photo of a surfer falling off their board"
+  width: 480
 date: 2022-12-21
 tags:
   - security
   - cookies
   - CORS
   - CSRF
+standalone: true
 layout: layouts/post.njk
 ---
 

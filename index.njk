@@ -1,5 +1,6 @@
 ---
 layout: layouts/home.njk
+standalone: true
 eleventyNavigation:
   key: Home
   order: 1
@@ -7,20 +8,22 @@ eleventyNavigation:
 
 <h1>Hey, I'm <a href="{{ '/about/' | url }}">Tim</a> and this is my Tech Blog.</h1>
 
-<h2>Latest 5 Posts</h2>
+<div class="home-heading">
+  <h2>Latest Posts</h2>
+  <a href="{{ '/posts/' | url }}">All posts</a>
+</div>
 
 {% set postslist = collections.posts | head(-5) %}
 {% set postslistCounter = collections.posts | length %}
 {% include "postslist.njk" %}
 
-<p class="more">
-  <a href="{{ '/posts/' | url }}">See all posts.</a>
-  <br>
-  Every post is tagged according to the topic it relates to:
-</p>
+<h2>Tags</h2>
+
 <ul class="post-tags-list">
-{% for tag in collections.tagList %}
-  {% set tagUrl %}/tags/{{ tag }}/{% endset %}
-  <li class="post-tag"><a href="{{ tagUrl | url }}">{{ tag }}</a></li>
-{% endfor %}
+  {% for tag in collections.tagList %}
+    {% set tagUrl %}/tags/{{ tag }}/{% endset %}
+    <li class="post-tag">
+      <a href="{{ tagUrl | url }}">{{ tag }}</a>
+    </li>
+  {% endfor %}
 </ul>
