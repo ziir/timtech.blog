@@ -6,9 +6,7 @@ Without 3rd party dependencies and just a few lines of code?"
 date: 2020-08-07
 tags:
   - JavaScript
-  - Node.js
   - concurrency
-  - async
 standalone: true
 layout: layouts/post.njk
 ---
