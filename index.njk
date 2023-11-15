@@ -21,7 +21,7 @@ eleventyNavigation:
 
 <ul class="post-tags-list">
   {% for tag in collections.tagList %}
-    {% set tagUrl %}/tags/{{ tag }}/{% endset %}
+    {% set tagUrl %}/tags/{{ tag | lower }}/{% endset %}
     <li class="post-tag">
       <a href="{{ tagUrl | url }}">{{ tag }}</a>
     </li>

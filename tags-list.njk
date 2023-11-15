@@ -7,7 +7,7 @@ layout: layouts/home.njk
 
 <ul>
   {% for tag in collections.tagList %}
-    {% set tagUrl %}/tags/{{ tag }}/{% endset %}
+    {% set tagUrl %}/tags/{{ tag | lower }}/{% endset %}
     <li>
       <a href="{{ tagUrl | url }}">{{ tag }}</a> ({{collections[tag] | length}})
     </li>

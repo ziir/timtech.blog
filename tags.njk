@@ -13,7 +13,7 @@ pagination:
 layout: layouts/home.njk
 eleventyComputed:
   title: “{{ tag | safe }}” Blog Posts
-permalink: /tags/{{ tag }}/
+permalink: /tags/{{ tag | lower }}/
 ---
 <h1>“{{ tag }}” Blog Posts</h1>
 
