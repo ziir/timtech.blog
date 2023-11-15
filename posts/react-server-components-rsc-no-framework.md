@@ -2,7 +2,7 @@
 title: React Server Components, without a framework?
 description: Can we use React Server Components today, without a framework like Next.js? As our experiment shows, not without significant challenges - for now at least?
 image:
-  path: /img/react-server-components-rsc-no-framework-demo-screenshot.png
+  path: /img/react-server-components-rsc-no-framework-demo-screenshot.webp
   width: 800
   alt: "Screenshot of the RSC Notes App Demo / Playground"
 date: 2023-11-07
@@ -15,7 +15,7 @@ standalone: true
 layout: layouts/post.njk
 ---
 
-<img src="/img/react-server-components-rsc-no-framework-demo-screenshot.png" alt="Screenshot of the RSC Notes App Demo / Playground" width="800" style="border: 1px solid #282c34;" />
+<img src="/img/react-server-components-rsc-no-framework-demo-screenshot.webp" alt="Screenshot of the RSC Notes App Demo / Playground" width="800" style="border: 1px solid #282c34;" />
 
 - [Live RSC Notes App Demo / Playground](https://rsc-demo.timtech.blog)
 - [Source code on GitHub](https://github.com/ziir/rsc-demo)
