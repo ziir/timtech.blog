@@ -12,10 +12,10 @@ Formerly Senior Front-End Engineer / Tech Lead at [Dashlane](https://www.dashlan
 
 ## I'm Looking For A Job
 
-I'm a Front-end Engineer with 10 years of professional experience building business-critical & public-facing web applications and websites in various environments.
+I'm a Software Engineer with 10+ years of professional experience building business-critical & public-facing web applications and websites in various environments.
 Passionate about the Web, I am proficient with JavaScript, Web technologies, the modern Front-end ecosystem and related tooling, with a strong focus on performance and security.
 
-[Download my CV (pdf)](/public/Timoth%C3%A9e%20Pillard's%20CV%202023.pdf)
+[Download my CV (pdf)](/public/Timoth%C3%A9e%20Pillard's%20CV%202025.pdf)
 
 ### Get In Touch
 
@@ -24,6 +24,8 @@ Passionate about the Web, I am proficient with JavaScript, Web technologies, the
 - [Send me an email](mailto:tim+about@timtech.blog)
 
 ## Recent Projects
+
+In 2024, I have developed [vite-plugin-swc-transform](https://www.npmjs.com/package/vite-plugin-swc-transform) & [viteup](https://github.com/ziir/viteup).
 
 In 2021/2022, I have analyzed the JavaScript bundles & Babel configuration of two important Mozilla projects, and contributed to bringing their JavaScript build to the then current state of the art, leading to modest bundle size & runtime performance improvements:
 
