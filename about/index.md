@@ -15,7 +15,7 @@ Formerly Senior Front-End Engineer / Tech Lead at [Dashlane](https://www.dashlan
 I'm a Software Engineer with 10+ years of professional experience building business-critical & public-facing web applications and websites in various environments.
 Passionate about the Web, I am proficient with JavaScript, Web technologies, the modern Front-end ecosystem and related tooling, with a strong focus on performance and security.
 
-[Download my CV (pdf)](/public/Timoth%C3%A9e%20Pillard's%20CV%202025.pdf)
+[Download my CV (pdf)](/public/Timoth%C3%A9e%20Pillard's%20CV%202026.pdf)
 
 ### Get In Touch
 
